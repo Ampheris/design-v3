@@ -101,11 +101,11 @@ body {
     min-width: 4.8em;
 }
 
-.logo+.title h1 {
+.logo + .title h1 {
     margin: 0.8rem 0;
 }
 
-.logo+.title.tagline h1 {
+.logo + .title.tagline h1 {
     margin: 0;
 }
 
@@ -146,7 +146,7 @@ body {
 
 /* IE8 + IE9 clearfix */
 
-.header>.container::after {
+.header > .container::after {
     content: '';
     display: block;
     clear: both;
@@ -188,28 +188,35 @@ body {
     .main {
         padding: 2em 0 1em;
     }
+
     .title, .logo {
         padding: 2em 1.5em 2em 0;
     }
+
     .logo {
         height: 8.8em;
     }
+
     .nav {
         clear: both;
         padding: 0;
     }
+
     .nav ul {
         padding-bottom: 1em;
     }
+
     .nav ul li {
         display: block;
         margin-left: 0;
         text-align: center;
     }
+
     .nav ul li a {
         display: block;
         padding: 0.5em 0;
     }
+
     .js .nav-toggle {
         display: block;
         float: right;
@@ -220,12 +227,15 @@ body {
         text-align: center;
         cursor: pointer;
     }
-    .js .nav-toggle>* {
+
+    .js .nav-toggle > * {
         vertical-align: middle;
     }
+
     .footer p {
         padding: 1em 0;
     }
+
     .footer .social {
         padding: 0.5em 0 0.5em 1em;
     }
@@ -371,12 +381,15 @@ abbr {
     .image.xsmall {
         width: 60%;
     }
+
     .image.small {
         width: 80%;
     }
+
     .image.large, .image.xlarge {
         width: 100%;
     }
+
     .image.float-left, .image.float-right {
         float: none;
         margin: 0 auto;
@@ -433,7 +446,7 @@ tbody tr:last-child td:last-child {
     border-bottom-right-radius: 0.3em;
 }
 
-table thead+tbody tr:first-child td {
+table thead + tbody tr:first-child td {
     border-radius: 0 !important;
 }
 
@@ -441,7 +454,7 @@ table thead+tbody tr:first-child td {
     overflow-x: auto;
 }
 
-.table-responsive>table {
+.table-responsive > table {
     margin-bottom: 0;
 }
 
