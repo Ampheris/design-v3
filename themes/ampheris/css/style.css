@@ -6461,11 +6461,13 @@ body {
   overflow-y: scroll;
   background-color: #bed4d0;
   margin: 0 !important;
+  font-family: "Comfortaa", cursive;
 }
 
 .title,
 .logo {
   text-align: center;
+  font-family: "Comfortaa", cursive;
 }
 
 .title * {

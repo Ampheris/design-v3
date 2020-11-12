@@ -11,11 +11,14 @@ body {
     overflow-y: scroll;
     background-color: $base-color;
     margin: 0 !important;
+    font-family: 'Comfortaa', cursive;
+
 }
 
 .title,
 .logo {
     text-align: center;
+    font-family: 'Comfortaa', cursive;
 }
 
 .title * {
