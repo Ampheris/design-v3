@@ -9,8 +9,7 @@
  * @version 2.1
  */
 
-function main()
-{
+function main() {
     // capability CSS classes
     document.documentElement.className = 'js';
 
@@ -30,30 +29,30 @@ function main()
     var menu = document.getElementById('nav'),
         menuToggle = document.getElementById('nav-toggle'),
         navIcon = document.getElementById('toggler')
-        toggleMenuEvent = function (event) {
-            if (event.type === 'keydown') {
-                if ((event.keyCode != 13) && (event.keyCode != 32)) {
-                    return;
+    toggleMenuEvent = function (event) {
+        if (event.type === 'keydown') {
+            if ((event.keyCode != 13) && (event.keyCode != 32)) {
+                return;
+            }
+        }
+
+        event.preventDefault();
+
+        if (menuToggle.getAttribute('aria-expanded') === 'false') {
+            menuToggle.setAttribute('aria-expanded', 'true');
+            navIcon.className = 'fa fa-times';
+
+            utils.slideDown(menu, null, function () {
+                if (event.type === 'keydown') {
+                    menu.focus();
                 }
-            }
-
-            event.preventDefault();
-
-            if (menuToggle.getAttribute('aria-expanded') === 'false') {
-                menuToggle.setAttribute('aria-expanded', 'true');
-                navIcon.className = 'fa fa-times';
-
-                utils.slideDown(menu, null, function () {
-                    if (event.type === 'keydown') {
-                        menu.focus();
-                    }
-                });
-            } else {
-                navIcon.className = 'fa fa-bars';
-                menuToggle.setAttribute('aria-expanded', 'false');
-                utils.slideUp(menu);
-            }
-        },
+            });
+        } else {
+            navIcon.className = 'fa fa-bars';
+            menuToggle.setAttribute('aria-expanded', 'false');
+            utils.slideUp(menu);
+        }
+    },
         onResizeEvent = function () {
             if (utils.isElementVisible(menuToggle)) {
                 menu.className = 'hidden';

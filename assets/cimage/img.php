@@ -23,12 +23,11 @@ set_exception_handler(function ($exception) {
 });
 
 
-
 /**
  * Get configuration options from file, if the file exists, else use $config
  * if its defined or create an empty $config.
  */
-$configFile = __DIR__.'/'.basename(__FILE__, '.php').'_config.php';
+$configFile = __DIR__ . '/' . basename(__FILE__, '.php') . '_config.php';
 
 if (is_file($configFile)) {
     $config = require $configFile;
@@ -40,7 +39,6 @@ if (is_file($configFile)) {
 if (!defined("CIMAGE_DEBUG")) {
     define("CIMAGE_DEBUG", false);
 }
-
 
 
 /**
@@ -55,22 +53,19 @@ if (!defined("CIMAGE_BUNDLE")) {
 }
 
 
-
 /**
-* verbose, v - do a verbose dump of what happens
-* vf - do verbose dump to file
-*/
+ * verbose, v - do a verbose dump of what happens
+ * vf - do verbose dump to file
+ */
 $verbose = getDefined(array('verbose', 'v'), true, false);
 $verboseFile = getDefined('vf', true, false);
 verbose("img.php version = " . CIMAGE_VERSION);
 
 
-
 /**
-* status - do a verbose dump of the configuration
-*/
+ * status - do a verbose dump of the configuration
+ */
 $status = getDefined('status', true, false);
-
 
 
 /**
@@ -127,7 +122,6 @@ verbose("mode = $mode");
 verbose("error log = " . ini_get('error_log'));
 
 
-
 /**
  * Set default timezone if not set or if its set in the config-file.
  */
@@ -140,15 +134,14 @@ if ($defaultTimezone) {
 }
 
 
-
 /**
  * Check if passwords are configured, used and match.
  * Options decide themself if they require passwords to be used.
  */
-$pwdConfig   = getConfig('password', false);
-$pwdAlways   = getConfig('password_always', false);
-$pwdType     = getConfig('password_type', 'text');
-$pwd         = get(array('password', 'pwd'), null);
+$pwdConfig = getConfig('password', false);
+$pwdAlways = getConfig('password_always', false);
+$pwdType = getConfig('password_type', 'text');
+$pwd = get(array('password', 'pwd'), null);
 
 // Check if passwords match, if configured to use passwords
 $passwordMatch = null;
@@ -175,7 +168,6 @@ if ($pwdAlways && $passwordMatch !== true) {
 verbose("password match = $passwordMatch");
 
 
-
 /**
  * Prevent hotlinking, leeching, of images by controlling who access them
  * from where.
@@ -184,8 +176,8 @@ verbose("password match = $passwordMatch");
 $allowHotlinking = getConfig('allow_hotlinking', true);
 $hotlinkingWhitelist = getConfig('hotlinking_whitelist', array());
 
-$serverName  = isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : null;
-$referer     = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : null;
+$serverName = isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : null;
+$referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : null;
 $refererHost = parse_url($referer, PHP_URL_HOST);
 
 if (!$allowHotlinking) {
@@ -219,14 +211,12 @@ verbose("referer = $referer");
 verbose("referer host = $refererHost");
 
 
-
 /**
  * Create the class for the image.
  */
 $CImage = getConfig('CImage', 'CImage');
 $img = new $CImage();
 $img->setVerbose($verbose || $verboseFile);
-
 
 
 /**
@@ -238,14 +228,12 @@ $cache = new $CCache();
 $cache->setDir($cachePath);
 
 
-
 /**
  * no-cache, nc - skip the cached version and process and create a new version in cache.
  */
 $useCache = getDefined(array('no-cache', 'nc'), false, true);
 
 verbose("use cache = $useCache");
-
 
 
 /**
@@ -262,7 +250,6 @@ $ftc->setCacheDir($cache->getPathToSubdir($fastTrackCache))
 $img->injectDependency("fastTrackCache", $ftc);
 
 
-
 /**
  *  Load and output images from fast track cache, if items are available
  * in cache.
@@ -273,7 +260,6 @@ if ($useCache && $allowFastTrackCache) {
     }
     $ftc->output();
 }
-
 
 
 /**
@@ -294,12 +280,11 @@ if ($allowRemote && $passwordMatch !== false) {
 }
 
 
-
 /**
  * shortcut, sc - extend arguments with a constant value, defined
  * in config-file.
  */
-$shortcut       = get(array('shortcut', 'sc'), null);
+$shortcut = get(array('shortcut', 'sc'), null);
 $shortcutConfig = getConfig('shortcut', array(
     'sepia' => "&f=grayscale&f0=brightness,-10&f1=contrast,-20&f2=colorize,120,60,0,0&sharpen",
 ));
@@ -315,12 +300,11 @@ if (isset($shortcut)
 }
 
 
-
 /**
  * src - the source image file.
  */
 $srcImage = urldecode(get('src'))
-    or errorPage('Must set src-attribute.', 404);
+or errorPage('Must set src-attribute.', 404);
 
 // Get settings for src-alt as backup image
 $srcAltImage = urldecode(get('src-alt', null));
@@ -330,20 +314,20 @@ if (empty($srcAltImage)) {
 }
 
 // Check for valid/invalid characters
-$imagePath           = getConfig('image_path', __DIR__ . '/img/');
+$imagePath = getConfig('image_path', __DIR__ . '/img/');
 $imagePathConstraint = getConfig('image_path_constraint', true);
-$validFilename       = getConfig('valid_filename', '#^[a-z0-9A-Z-/_ \.:]+$#');
+$validFilename = getConfig('valid_filename', '#^[a-z0-9A-Z-/_ \.:]+$#');
 
 // Source is remote
 $remoteSource = false;
 
 // Dummy image feature
-$dummyEnabled  = getConfig('dummy_enabled', true);
+$dummyEnabled = getConfig('dummy_enabled', true);
 $dummyFilename = getConfig('dummy_filename', 'dummy');
 $dummyImage = false;
 
 preg_match($validFilename, $srcImage)
-    or errorPage('Source filename contains invalid characters.', 404);
+or errorPage('Source filename contains invalid characters.', 404);
 
 if ($dummyEnabled && $srcImage === $dummyFilename) {
 
@@ -366,7 +350,7 @@ if ($dummyEnabled && $srcImage === $dummyFilename) {
         $pathToImage = realpath($imagePath . $srcImage);
 
         preg_match($validFilename, $srcImage)
-            or errorPage('Source (alt) filename contains invalid characters.', 404);
+        or errorPage('Source (alt) filename contains invalid characters.', 404);
 
         if ($dummyEnabled && $srcImage === $dummyFilename) {
             // Check if src-alt is the dummy image
@@ -376,11 +360,11 @@ if ($dummyEnabled && $srcImage === $dummyFilename) {
 
     if (!$dummyImage) {
         is_file($pathToImage)
-            or errorPage(
-                'Source image is not a valid file, check the filename and that a
+        or errorPage(
+            'Source image is not a valid file, check the filename and that a
                 matching file exists on the filesystem.',
-                404
-            );
+            404
+        );
     }
 }
 
@@ -389,15 +373,14 @@ if ($imagePathConstraint && !$dummyImage && !$remoteSource) {
     $imageDir = realpath($imagePath);
 
     substr_compare($imageDir, $pathToImage, 0, strlen($imageDir)) == 0
-        or errorPage(
-            'Security constraint: Source image is not below the directory "image_path"
+    or errorPage(
+        'Security constraint: Source image is not below the directory "image_path"
             as specified in the config file img_config.php.',
-            404
-        );
+        404
+    );
 }
 
 verbose("src = $srcImage");
-
 
 
 /**
@@ -415,7 +398,7 @@ $sizeConstant = getConfig('size_constant', function () {
     // Add grid column width, useful for use as predefined size for width (or height).
     $gridColumnWidth = 30;
     $gridGutterWidth = 10;
-    $gridColumns     = 24;
+    $gridColumns = 24;
 
     for ($i = 1; $i <= $gridColumns; $i++) {
         $sizes['c' . $i] = ($gridColumnWidth + $gridGutterWidth) * $i - $gridGutterWidth;
@@ -427,12 +410,11 @@ $sizeConstant = getConfig('size_constant', function () {
 $sizes = call_user_func($sizeConstant);
 
 
-
 /**
  * width, w - set target width, affecting the resulting image width, height and resize options
  */
-$newWidth     = get(array('width', 'w'));
-$maxWidth     = getConfig('max_width', 2000);
+$newWidth = get(array('width', 'w'));
+$maxWidth = getConfig('max_width', 2000);
 
 // Check to replace predefined size
 if (isset($sizes[$newWidth])) {
@@ -440,17 +422,16 @@ if (isset($sizes[$newWidth])) {
 }
 
 // Support width as % of original width
-if ($newWidth && $newWidth[strlen($newWidth)-1] == '%') {
+if ($newWidth && $newWidth[strlen($newWidth) - 1] == '%') {
     is_numeric(substr($newWidth, 0, -1))
-        or errorPage('Width % not numeric.', 404);
+    or errorPage('Width % not numeric.', 404);
 } else {
     is_null($newWidth)
-        or ($newWidth > 10 && $newWidth <= $maxWidth)
-        or errorPage('Width out of range.', 404);
+    or ($newWidth > 10 && $newWidth <= $maxWidth)
+    or errorPage('Width out of range.', 404);
 }
 
 verbose("new width = $newWidth");
-
 
 
 /**
@@ -465,31 +446,30 @@ if (isset($sizes[$newHeight])) {
 }
 
 // height
-if ($newHeight && $newHeight[strlen($newHeight)-1] == '%') {
+if ($newHeight && $newHeight[strlen($newHeight) - 1] == '%') {
     is_numeric(substr($newHeight, 0, -1))
-        or errorPage('Height % out of range.', 404);
+    or errorPage('Height % out of range.', 404);
 } else {
     is_null($newHeight)
-        or ($newHeight > 10 && $newHeight <= $maxHeight)
-        or errorPage('Height out of range.', 404);
+    or ($newHeight > 10 && $newHeight <= $maxHeight)
+    or errorPage('Height out of range.', 404);
 }
 
 verbose("new height = $newHeight");
 
 
-
 /**
  * aspect-ratio, ar - affecting the resulting image width, height and resize options
  */
-$aspectRatio         = get(array('aspect-ratio', 'ar'));
+$aspectRatio = get(array('aspect-ratio', 'ar'));
 $aspectRatioConstant = getConfig('aspect_ratio_constant', function () {
     return array(
-        '3:1'    => 3/1,
-        '3:2'    => 3/2,
-        '4:3'    => 4/3,
-        '8:5'    => 8/5,
-        '16:10'  => 16/10,
-        '16:9'   => 16/9,
+        '3:1' => 3 / 1,
+        '3:2' => 3 / 2,
+        '4:3' => 4 / 3,
+        '8:5' => 8 / 5,
+        '16:10' => 16 / 10,
+        '16:9' => 16 / 9,
         'golden' => 1.618,
     );
 });
@@ -508,11 +488,10 @@ if ($negateAspectRatio) {
 }
 
 is_null($aspectRatio)
-    or is_numeric($aspectRatio)
-    or errorPage('Aspect ratio out of range', 404);
+or is_numeric($aspectRatio)
+or errorPage('Aspect ratio out of range', 404);
 
 verbose("aspect ratio = $aspectRatio");
-
 
 
 /**
@@ -521,7 +500,6 @@ verbose("aspect ratio = $aspectRatio");
 $cropToFit = getDefined(array('crop-to-fit', 'cf'), true, false);
 
 verbose("crop to fit = $cropToFit");
-
 
 
 /**
@@ -535,14 +513,12 @@ if ($backgroundColor) {
 }
 
 
-
 /**
  * bgColor - Default background color to use
  */
 $bgColor = get(array('bgColor', 'bg-color', 'bgc'), null);
 
 verbose("bgColor = $bgColor");
-
 
 
 /**
@@ -556,8 +532,6 @@ if ($resizeStrategy) {
 }
 
 
-
-
 /**
  * fill-to-fit, ff - affecting the resulting image width, height and resize options
  */
@@ -568,14 +542,13 @@ verbose("fill-to-fit = $fillToFit");
 if ($fillToFit !== null) {
 
     if (!empty($fillToFit)) {
-        $bgColor   = $fillToFit;
+        $bgColor = $fillToFit;
         verbose("fillToFit changed bgColor to = $bgColor");
     }
 
     $fillToFit = true;
     verbose("fill-to-fit (fixed) = $fillToFit");
 }
-
 
 
 /**
@@ -586,7 +559,6 @@ $keepRatio = getDefined(array('no-ratio', 'nr', 'stretch'), false, true);
 verbose("keep ratio = $keepRatio");
 
 
-
 /**
  * crop, c - affecting the resulting image width, height and resize options
  */
@@ -595,14 +567,12 @@ $crop = get(array('crop', 'c'));
 verbose("crop = $crop");
 
 
-
 /**
  * area, a - affecting the resulting image width, height and resize options
  */
 $area = get(array('area', 'a'));
 
 verbose("area = $area");
-
 
 
 /**
@@ -619,7 +589,6 @@ if ($useOriginalDefault === true) {
 verbose("use original = $useOriginal");
 
 
-
 /**
  * quality, q - set level of quality for jpeg images
  */
@@ -627,15 +596,14 @@ $quality = get(array('quality', 'q'));
 $qualityDefault = getConfig('jpg_quality', null);
 
 is_null($quality)
-    or ($quality > 0 and $quality <= 100)
-    or errorPage('Quality out of range', 404);
+or ($quality > 0 and $quality <= 100)
+or errorPage('Quality out of range', 404);
 
 if (is_null($quality) && !is_null($qualityDefault)) {
     $quality = $qualityDefault;
 }
 
 verbose("quality = $quality");
-
 
 
 /**
@@ -645,15 +613,14 @@ $compress = get(array('compress', 'co'));
 $compressDefault = getConfig('png_compression', null);
 
 is_null($compress)
-    or ($compress > 0 and $compress <= 9)
-    or errorPage('Compress out of range', 404);
+or ($compress > 0 and $compress <= 9)
+or errorPage('Compress out of range', 404);
 
 if (is_null($compress) && !is_null($compressDefault)) {
     $compress = $compressDefault;
 }
 
 verbose("compress = $compress");
-
 
 
 /**
@@ -664,18 +631,16 @@ $saveAs = get(array('save-as', 'sa'));
 verbose("save as = $saveAs");
 
 
-
 /**
  * scale, s - Processing option, scale up or down the image prior actual resize
  */
 $scale = get(array('scale', 's'));
 
 is_null($scale)
-    or ($scale >= 0 and $scale <= 400)
-    or errorPage('Scale out of range', 404);
+or ($scale >= 0 and $scale <= 400)
+or errorPage('Scale out of range', 404);
 
 verbose("scale = $scale");
-
 
 
 /**
@@ -686,14 +651,12 @@ $palette = getDefined(array('palette', 'p'), true, false);
 verbose("palette = $palette");
 
 
-
 /**
  * sharpen - Processing option, post filter for sharpen effect
  */
 $sharpen = getDefined('sharpen', true, null);
 
 verbose("sharpen = $sharpen");
-
 
 
 /**
@@ -704,7 +667,6 @@ $emboss = getDefined('emboss', true, null);
 verbose("emboss = $emboss");
 
 
-
 /**
  * blur - Processing option, post filter for blur effect
  */
@@ -713,18 +675,16 @@ $blur = getDefined('blur', true, null);
 verbose("blur = $blur");
 
 
-
 /**
  * rotateBefore - Rotate the image with an angle, before processing
  */
 $rotateBefore = get(array('rotateBefore', 'rotate-before', 'rb'));
 
 is_null($rotateBefore)
-    or ($rotateBefore >= -360 and $rotateBefore <= 360)
-    or errorPage('RotateBefore out of range', 404);
+or ($rotateBefore >= -360 and $rotateBefore <= 360)
+or errorPage('RotateBefore out of range', 404);
 
 verbose("rotateBefore = $rotateBefore");
-
 
 
 /**
@@ -733,11 +693,10 @@ verbose("rotateBefore = $rotateBefore");
 $rotateAfter = get(array('rotateAfter', 'rotate-after', 'ra', 'rotate', 'r'));
 
 is_null($rotateAfter)
-    or ($rotateAfter >= -360 and $rotateAfter <= 360)
-    or errorPage('RotateBefore out of range', 404);
+or ($rotateAfter >= -360 and $rotateAfter <= 360)
+or errorPage('RotateBefore out of range', 404);
 
 verbose("rotateAfter = $rotateAfter");
-
 
 
 /**
@@ -746,7 +705,6 @@ verbose("rotateAfter = $rotateAfter");
 $autoRotate = getDefined(array('autoRotate', 'auto-rotate', 'aro'), true, false);
 
 verbose("autoRotate = $autoRotate");
-
 
 
 /**
@@ -768,10 +726,9 @@ for ($i = 0; $i < 10; $i++) {
 verbose("filters = " . print_r($filters, 1));
 
 
-
 /**
-* json -  output the image as a JSON object with details on the image.
-* ascii - output the image as ASCII art.
+ * json -  output the image as a JSON object with details on the image.
+ * ascii - output the image as ASCII art.
  */
 $outputFormat = getDefined('json', 'json', null);
 $outputFormat = getDefined('ascii', 'ascii', $outputFormat);
@@ -816,15 +773,12 @@ if ($outputFormat == 'ascii') {
 }
 
 
-
-
 /**
  * dpr - change to get larger image to easier support larger dpr, such as retina.
  */
 $dpr = get(array('ppi', 'dpr', 'device-pixel-ratio'), 1);
 
 verbose("dpr = $dpr");
-
 
 
 /**
@@ -842,7 +796,6 @@ if ($convolve && isset($convolutionConstant)) {
 verbose("convolve = " . print_r($convolve, 1));
 
 
-
 /**
  * no-upscale, nu - Do not upscale smaller image to larger dimension.
  */
@@ -851,24 +804,22 @@ $upscale = getDefined(array('no-upscale', 'nu'), false, true);
 verbose("upscale = $upscale");
 
 
-
 /**
  * Get details for post processing
  */
 $postProcessing = getConfig('postprocessing', array(
-    'png_lossy'        => false,
-    'png_lossy_cmd'    => '/usr/local/bin/pngquant --force --output',
+    'png_lossy' => false,
+    'png_lossy_cmd' => '/usr/local/bin/pngquant --force --output',
 
-    'png_filter'        => false,
-    'png_filter_cmd'    => '/usr/local/bin/optipng -q',
+    'png_filter' => false,
+    'png_filter_cmd' => '/usr/local/bin/optipng -q',
 
-    'png_deflate'       => false,
-    'png_deflate_cmd'   => '/usr/local/bin/pngout -q',
+    'png_deflate' => false,
+    'png_deflate_cmd' => '/usr/local/bin/pngout -q',
 
-    'jpeg_optimize'     => false,
+    'jpeg_optimize' => false,
     'jpeg_optimize_cmd' => '/usr/local/bin/jpegtran -copy none -optimize',
 ));
-
 
 
 /**
@@ -879,33 +830,31 @@ $lossy = getDefined(array('lossy'), true, null);
 verbose("lossy = $lossy");
 
 
-
 /**
  * alias - Save resulting image to another alias name.
  * Password always apply, must be defined.
  */
-$alias          = get('alias', null);
-$aliasPath      = getConfig('alias_path', null);
+$alias = get('alias', null);
+$aliasPath = getConfig('alias_path', null);
 $validAliasname = getConfig('valid_aliasname', '#^[a-z0-9A-Z-_]+$#');
-$aliasTarget    = null;
+$aliasTarget = null;
 
 if ($alias && $aliasPath && $passwordMatch) {
 
     $aliasTarget = $aliasPath . $alias;
-    $useCache    = false;
+    $useCache = false;
 
     is_writable($aliasPath)
-        or errorPage("Directory for alias is not writable.", 403);
+    or errorPage("Directory for alias is not writable.", 403);
 
     preg_match($validAliasname, $alias)
-        or errorPage('Filename for alias contains invalid characters. Do not add extension.', 404);
+    or errorPage('Filename for alias contains invalid characters. Do not add extension.', 404);
 
 } elseif ($alias) {
     errorPage('Alias is not enabled in the config file or password not matching.', 403);
 }
 
 verbose("alias = $alias");
-
 
 
 /**
@@ -919,17 +868,15 @@ if ($cacheControl) {
 }
 
 
-
 /**
  * interlace - Enable configuration for interlaced progressive JPEG images.
  */
-$interlaceConfig  = getConfig('interlace', null);
-$interlaceValue   = getValue('interlace', null);
+$interlaceConfig = getConfig('interlace', null);
+$interlaceValue = getValue('interlace', null);
 $interlaceDefined = getDefined('interlace', true, null);
 $interlace = $interlaceValue ?? $interlaceDefined ?? $interlaceConfig;
 verbose("interlace (configfile) = ", $interlaceConfig);
 verbose("interlace = ", $interlace);
-
 
 
 /**
@@ -942,9 +889,9 @@ if ($dummyImage === true) {
         ->setSource($dummyFilename, $dummyDir)
         ->setOptions(
             array(
-                'newWidth'  => $newWidth,
+                'newWidth' => $newWidth,
                 'newHeight' => $newHeight,
-                'bgColor'   => $bgColor,
+                'bgColor' => $bgColor,
             )
         )
         ->setJpegQuality($quality)
@@ -958,7 +905,6 @@ if ($dummyImage === true) {
 
     verbose("src (updated) = $srcImage");
 }
-
 
 
 /**
@@ -988,12 +934,11 @@ if ($srgb || $srgbDefault) {
 }
 
 
-
 /**
  * Display status
  */
 if ($status) {
-    $text  = "img.php version = " . CIMAGE_VERSION . "\n";
+    $text = "img.php version = " . CIMAGE_VERSION . "\n";
     $text .= "PHP version = " . PHP_VERSION . "\n";
     $text .= "Running on: " . $_SERVER['SERVER_SOFTWARE'] . "\n";
     $text .= "Allow remote images = $allowRemote\n";
@@ -1047,14 +992,12 @@ EOD;
 }
 
 
-
 /**
  * Log verbose details to file
  */
 if ($verboseFile) {
     $img->setVerboseToFile("$cachePath/log.txt");
 }
-
 
 
 /**
@@ -1066,47 +1009,46 @@ if (is_callable($hookBeforeCImage)) {
     verbose("hookBeforeCImage activated");
 
     $allConfig = $hookBeforeCImage($img, array(
-            // Options for calculate dimensions
-            'newWidth'  => $newWidth,
-            'newHeight' => $newHeight,
-            'aspectRatio' => $aspectRatio,
-            'keepRatio' => $keepRatio,
-            'cropToFit' => $cropToFit,
-            'fillToFit' => $fillToFit,
-            'crop'      => $crop,
-            'area'      => $area,
-            'upscale'   => $upscale,
+        // Options for calculate dimensions
+        'newWidth' => $newWidth,
+        'newHeight' => $newHeight,
+        'aspectRatio' => $aspectRatio,
+        'keepRatio' => $keepRatio,
+        'cropToFit' => $cropToFit,
+        'fillToFit' => $fillToFit,
+        'crop' => $crop,
+        'area' => $area,
+        'upscale' => $upscale,
 
-            // Pre-processing, before resizing is done
-            'scale'        => $scale,
-            'rotateBefore' => $rotateBefore,
-            'autoRotate'   => $autoRotate,
+        // Pre-processing, before resizing is done
+        'scale' => $scale,
+        'rotateBefore' => $rotateBefore,
+        'autoRotate' => $autoRotate,
 
-            // General processing options
-            'bgColor'    => $bgColor,
+        // General processing options
+        'bgColor' => $bgColor,
 
-            // Post-processing, after resizing is done
-            'palette'   => $palette,
-            'filters'   => $filters,
-            'sharpen'   => $sharpen,
-            'emboss'    => $emboss,
-            'blur'      => $blur,
-            'convolve'  => $convolve,
-            'rotateAfter' => $rotateAfter,
-            'interlace' => $interlace,
+        // Post-processing, after resizing is done
+        'palette' => $palette,
+        'filters' => $filters,
+        'sharpen' => $sharpen,
+        'emboss' => $emboss,
+        'blur' => $blur,
+        'convolve' => $convolve,
+        'rotateAfter' => $rotateAfter,
+        'interlace' => $interlace,
 
-            // Output format
-            'outputFormat' => $outputFormat,
-            'dpr'          => $dpr,
+        // Output format
+        'outputFormat' => $outputFormat,
+        'dpr' => $dpr,
 
-            // Other
-            'postProcessing' => $postProcessing,
-            'lossy' => $lossy,
+        // Other
+        'postProcessing' => $postProcessing,
+        'lossy' => $lossy,
     ));
     verbose(print_r($allConfig, 1));
     extract($allConfig);
 }
-
 
 
 /**
@@ -1145,7 +1087,6 @@ EOD;
 }
 
 
-
 /**
  * Load, process and output the image
  */
@@ -1156,37 +1097,37 @@ $img->log("Incoming arguments: " . print_r(verbose(), 1))
     ->setOptions(
         array(
             // Options for calculate dimensions
-            'newWidth'  => $newWidth,
+            'newWidth' => $newWidth,
             'newHeight' => $newHeight,
             'aspectRatio' => $aspectRatio,
             'keepRatio' => $keepRatio,
             'cropToFit' => $cropToFit,
             'fillToFit' => $fillToFit,
-            'crop'      => $crop,
-            'area'      => $area,
-            'upscale'   => $upscale,
+            'crop' => $crop,
+            'area' => $area,
+            'upscale' => $upscale,
 
             // Pre-processing, before resizing is done
-            'scale'        => $scale,
+            'scale' => $scale,
             'rotateBefore' => $rotateBefore,
-            'autoRotate'   => $autoRotate,
+            'autoRotate' => $autoRotate,
 
             // General processing options
-            'bgColor'    => $bgColor,
+            'bgColor' => $bgColor,
 
             // Post-processing, after resizing is done
-            'palette'   => $palette,
-            'filters'   => $filters,
-            'sharpen'   => $sharpen,
-            'emboss'    => $emboss,
-            'blur'      => $blur,
-            'convolve'  => $convolve,
+            'palette' => $palette,
+            'filters' => $filters,
+            'sharpen' => $sharpen,
+            'emboss' => $emboss,
+            'blur' => $blur,
+            'convolve' => $convolve,
             'rotateAfter' => $rotateAfter,
             'interlace' => $interlace,
 
             // Output format
             'outputFormat' => $outputFormat,
-            'dpr'          => $dpr,
+            'dpr' => $dpr,
 
             // Postprocessing using external tools
             'lossy' => $lossy,
