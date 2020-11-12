@@ -6510,23 +6510,18 @@ h2 {
   border-bottom: 2px solid;
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+ul li {
+  padding: 0.2rem;
 }
 
-li {
-  float: left;
+ul li a {
+  color: black;
+  text-decoration-line: none;
 }
 
-li a {
-  display: block;
-  color: #000000;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+ul li a:hover {
+  color: #876C6E;
+  text-decoration-line: underline;
 }
 
 pre {

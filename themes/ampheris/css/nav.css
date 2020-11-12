@@ -23,6 +23,10 @@
   text-align: center;
   font-size: 22px;
   color: black !important;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 #nav:focus, .nav:focus {
@@ -35,6 +39,18 @@
   display: inline-block;
   text-decoration: none;
   color: black;
+}
+
+#nav li {
+  float: left;
+}
+
+#nav li a {
+  display: block;
+  color: #000000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
 #nav ul li {
@@ -65,16 +81,15 @@
 
   #nav ul {
     padding-bottom: 1em;
+    display: inline-grid;
   }
 
   #nav ul li {
-    display: block;
     margin-left: 0;
     text-align: center;
   }
 
   #nav ul li a {
-    display: block;
     padding: 0.5em 0;
   }
 
