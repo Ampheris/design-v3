@@ -1,15 +1,50 @@
 ---
 Title: Report
 Description: The course report page
+Template: report
 ---
 
 Redovisningssida för design
 ==================
+<div class="kmom-box">
+ <h2>Kmom01</h2>
+<p>Jag har inte arbetat med andra ramverk eller CMS tidigare...</p>
+<a href="report/kmom01">Läs mer</a>
+</div>
 
-* [kmom01](report/kmom01)
-* [kmom02](report/kmom02)
-* [kmom03](report/kmom03)
-* [kmom04](report/kmom04)
-* [kmom05](report/kmom05)
-* [kmom06](report/kmom06)
-* [kmom10](report/kmom10)
+<div class="kmom-box">
+<h2>Kmom02</h2>
+<p>Jag tycker att SASS är en sådan befrielse!...</p>
+<a href="report/kmom02">Läs mer</a>
+</div>
+
+<div class="kmom-box">
+<h2>Kmom03</h2>
+<p>Rapport kommer...</p>
+<a href="report/kmom03">Läs mer</a>
+</div>
+
+<div class="kmom-box">
+<h2>Kmom04</h2>
+<p>Rapport kommer...</p>
+<a href="report/kmom04">Läs mer</a>
+</div>
+
+<div class="kmom-box">
+<h2>Kmom05</h2>
+<p>Rapport kommer...</p>
+<a href="report/kmom05">Läs mer</a>
+</div>
+
+<div class="kmom-box">
+<h2>Kmom06</h2>
+<p>Rapport kommer...</p>
+<a href="report/kmom06">Läs mer</a>
+
+</div>
+
+<div class="kmom-box project">
+<h2>Kmom10</h2>
+<p>Rapport kommer...</p>
+<a href="report/kmom10">Läs mer</a>
+</div>

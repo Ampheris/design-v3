@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "stylelint \"**/*.scss\"",
-    "style": "sass ampheris/css/style.scss ampheris/css/style.css --no-source-map",
-    "nav": "sass ampheris/css/nav.scss ampheris/css/nav.css --no-source-map"
+    "style": "sass ampheris/scss/style.scss ampheris/css/style.css --no-source-map",
+    "nav": "sass ampheris/scss/nav.scss ampheris/css/nav.css --no-source-map"
   },
   "keywords": [],
   "author": "",

@@ -6,13 +6,15 @@ $fa-font-path: '../../shared/fontawesome/webfonts';
 @import '../../shared/fontawesome/scss/regular';
 @import '../../shared/scss/base';
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;600&display=swap');
+@import "nav";
+@import "report";
+
 
 body {
     overflow-y: scroll;
     background-color: $base-color;
-    margin: 0 !important;
+    margin: 0 auto !important;
     font-family: 'Comfortaa', cursive;
-
 }
 
 .title,
