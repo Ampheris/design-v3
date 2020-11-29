@@ -1,5 +1,4 @@
-$kmom-background: #d4b4b6;
-$kmom-header: #876c6e;
+
 
 .landingpage {
     display: grid;
@@ -11,6 +10,7 @@ $kmom-header: #876c6e;
 .landingpage h1 {
     grid-column: span 3;
     justify-self: center;
+    color: $text-color;
 }
 
 .kmom-box.project {
@@ -20,20 +20,20 @@ $kmom-header: #876c6e;
 .kmom-box {
     background-color: $kmom-background;
     border-radius: 5px;
-    color: black;
+    color: $text-color;
     text-align: center;
     padding-bottom: 0.5rem;
 
     a {
-        color: black;
+        color: $text-color;
         font-size: 12px;
-        background-color: $header_footer;
+        background-color: $base-color;
         padding: 0.2rem;
         border: #d3d3d3;
         border-radius: 4px;
 
         &:hover {
-            background-color: $base-color;
+            background-color: $hover-color-report;
         }
     }
 }

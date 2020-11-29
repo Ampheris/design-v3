@@ -4,7 +4,7 @@ $fa-font-path: '../../shared/fontawesome/webfonts';
 @import '../../shared/fontawesome/scss/brands';
 @import '../../shared/fontawesome/scss/solid';
 @import '../../shared/fontawesome/scss/regular';
-@import '../../shared/scss/variables';
+@import '../../shared/scss/dark-variables';
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;600&display=swap');
 @import "nav";
 @import "report";
@@ -16,6 +16,7 @@ body {
     background-color: $base-color;
     margin: 0 auto !important;
     font-family: 'Comfortaa', cursive;
+    color: $text-color;
 }
 
 .title,
@@ -124,23 +125,10 @@ pre {
     width: 100%;
     height: 10rem;
     object-fit: cover;
-    filter: sepia(58%) grayscale(43%)
+    filter: grayscale(80%);
 }
-
-.analysis-img{
-    display: flex;
-
-    img {
-        width: 50%;
-    }
-}
-
-
 
 @media (max-width: 767px) {
-    .analysis-img{
-        display: block;
-    }
     .main {
         padding: 2em 0 1em;
     }

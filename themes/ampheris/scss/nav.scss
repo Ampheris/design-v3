@@ -22,7 +22,7 @@
 #nav {
     text-align: center;
     font-size: 22px;
-    color: black !important;
+    color: $text-color !important;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -38,7 +38,7 @@
     margin: 0;
     display: inline-block;
     text-decoration: none;
-    color: black;
+    color: $text-color;
 }
 #nav li {
     float: left;
@@ -46,7 +46,7 @@
 
 #nav li a {
     display: block;
-    color: #000000;
+    color: $text-color;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -60,7 +60,7 @@
 }
 
 #nav a:hover, #nav-toggle:hover {
-    color: #CDD4C9;
+    color: $hover-color-report;
     margin: 0;
     padding-bottom: 0;
     font-size: 22px;
