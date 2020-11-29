@@ -26,7 +26,7 @@ Redovisningssida för design
 
 <div class="kmom-box">
 <h2>Kmom04</h2>
-<p>Rapport kommer...</p>
+<p>Skrivuppgiften var väldigt rolig, speciellt att man fick välja själv...</p>
 <a href="report/kmom04">Läs mer</a>
 </div>
 
