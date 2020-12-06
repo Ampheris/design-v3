@@ -30,8 +30,6 @@ Jag valde att göra ett monokromiskt färgschema enligt följande:
 <td style="height: 50px; width: 50px; background-color: #eaa08a">
 </tr>
 </table>
-</div>
-
 Jag ville ha en ljus bakgrund med en lite mörkare meny så det skulle se ut som menyn låg ovanför bakgrunden. Jag valde
 att behålla samma färg i menyn som på "korten" i report samt analys sidan. Så att det skulle se sammanhängande ut. Jag 
 valde en mer utstickande men tillhörande färg på hover-effekten över menyvalen samt länkarna i korten. För att få min
@@ -46,3 +44,5 @@ Dock känner jag att jag hade nog velat göra det via imports istället då det 
 
 Mitt TIL för detta moment är egentligen hur man ska tänka när man väljer färger till sin sida och vad man vill förmedla.
 Det känns som att det vanligaste man väljer är monokromiskt färgschema.
+</div>
+

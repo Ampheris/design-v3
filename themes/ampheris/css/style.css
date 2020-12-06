@@ -6135,52 +6135,45 @@ readers do not read off random characters that represent icons */
 
 .slide {
   overflow-y: hidden !important;
-  -webkit-transition: height 0.5s ease-in !important;
   transition: height 0.5s ease-in !important;
 }
 
-#nav {
+nav {
   text-align: center;
   font-size: 22px;
-  color: black !important;
+  color: #000 !important;
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
 }
-
-#nav:focus, .nav:focus {
+nav:focus {
   outline: none;
 }
-
-#nav ul {
+nav ul {
   list-style: none;
   margin: 0;
   display: inline-block;
   text-decoration: none;
-  color: black;
+  color: #000;
 }
-
-#nav li {
+nav li {
   float: left;
 }
-
-#nav li a {
+nav li a {
   display: block;
-  color: black;
+  color: #000;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
-
-#nav ul li {
+nav ul li {
   display: inline-block;
   margin-left: 1em;
   padding: 0;
   font-weight: bold;
 }
-
-#nav a:hover, #nav-toggle:hover {
+nav a:hover {
   color: #eaa08a;
   margin: 0;
   padding-bottom: 0;
@@ -6188,32 +6181,40 @@ readers do not read off random characters that represent icons */
   text-decoration: underline;
 }
 
-#nav-toggle {
+.nav:focus {
+  outline: none;
+}
+
+.nav-toggle {
   display: none;
+}
+.nav-togglehover {
+  color: #eaa08a;
+  margin: 0;
+  padding-bottom: 0;
+  font-size: 22px;
+  text-decoration: underline;
 }
 
 /* Small devices */
 @media (max-width: 767px) {
-  #nav {
+  nav {
     clear: both;
     padding: 0;
   }
-
-  #nav ul {
+  nav ul {
     padding-bottom: 1em;
     display: inline-grid;
   }
-
-  #nav ul li {
+  nav ul li {
     margin-left: 0;
     text-align: center;
   }
-
-  #nav ul li a {
+  nav ul li a {
     padding: 0.5em 0;
   }
 
-  .js #nav-toggle {
+  .js .nav-toggle {
     display: block;
     float: right;
     width: 2em;
@@ -6224,7 +6225,7 @@ readers do not read off random characters that represent icons */
     cursor: pointer;
   }
 
-  .js #nav-toggle > * {
+  .js .nav-toggle > * {
     vertical-align: middle;
   }
 }
@@ -6238,7 +6239,7 @@ readers do not read off random characters that represent icons */
 .landingpage h1 {
   grid-column: span 3;
   justify-self: center;
-  color: black;
+  color: #000;
 }
 
 .kmom-box.project {
@@ -6246,14 +6247,13 @@ readers do not read off random characters that represent icons */
 }
 
 .kmom-box {
-  background-color: #b3a39f;
   border-radius: 5px;
-  color: black;
+  color: #000;
   text-align: center;
   padding-bottom: 0.5rem;
 }
 .kmom-box a {
-  color: black;
+  color: #000;
   font-size: 12px;
   background-color: #e6d2cc;
   padding: 0.2rem;
@@ -6262,6 +6262,35 @@ readers do not read off random characters that represent icons */
 }
 .kmom-box a:hover {
   background-color: #eaa08a;
+}
+
+img,
+embed,
+object,
+video {
+  max-width: 100%;
+}
+
+.gallery-img {
+  height: 100%;
+}
+
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 @media (max-width: 767px) {
@@ -6317,7 +6346,7 @@ body {
 
 .title * {
   margin: 0;
-  color: black;
+  color: #000;
 }
 
 .title p {
@@ -6360,7 +6389,7 @@ ul li {
 }
 
 ul li a {
-  color: black;
+  color: #000;
   text-decoration-line: none;
 }
 
@@ -6378,7 +6407,7 @@ pre {
   padding: 1rem;
   margin: 0 auto;
   height: auto;
-  color: black;
+  color: #000;
 }
 
 .site-footer {
@@ -6386,7 +6415,7 @@ pre {
   padding: 1rem;
   margin: 0 auto;
   height: auto;
-  color: black;
+  color: #000;
 }
 
 .site-footer .social {
@@ -6428,7 +6457,8 @@ pre {
     padding: 2em 0 1em;
   }
 
-  .title, .logo {
+  .title,
+.logo {
     padding: 2em 1.5em 2em 0;
   }
 

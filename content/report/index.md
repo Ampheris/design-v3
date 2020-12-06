@@ -20,7 +20,7 @@ Redovisningssida för design
 
 <div class="kmom-box">
 <h2>Kmom03</h2>
-<p>Rapport kommer...</p>
+<p>Det har gått bra att arbeta med css-grid. Jag valde att avstå...</p>
 <a href="report/kmom03">Läs mer</a>
 </div>
 

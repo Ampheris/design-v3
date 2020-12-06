@@ -15,11 +15,10 @@
 
 .slide {
     overflow-y: hidden !important;
-    -webkit-transition: height 0.5s ease-in !important;
     transition: height 0.5s ease-in !important;
 }
 
-#nav {
+nav {
     text-align: center;
     font-size: 22px;
     color: $text-color !important;
@@ -27,73 +26,86 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
+
+    &:focus {
+        outline: none;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        display: inline-block;
+        text-decoration: none;
+        color: $text-color;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: $text-color;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    ul li {
+        display: inline-block;
+        margin-left: 1em;
+        padding: 0;
+        font-weight: bold;
+    }
+
+    a:hover {
+        color: $hover-color-report;
+        margin: 0;
+        padding-bottom: 0;
+        font-size: 22px;
+        text-decoration: underline;
+    }
 }
 
-#nav:focus, .nav:focus {
+.nav:focus {
     outline: none;
 }
 
-#nav ul {
-    list-style: none;
-    margin: 0;
-    display: inline-block;
-    text-decoration: none;
-    color: $text-color;
-}
-#nav li {
-    float: left;
-}
-
-#nav li a {
-    display: block;
-    color: $text-color;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-#nav ul li {
-    display: inline-block;
-    margin-left: 1em;
-    padding: 0;
-    font-weight: bold;
-}
-
-#nav a:hover, #nav-toggle:hover {
-    color: $hover-color-report;
-    margin: 0;
-    padding-bottom: 0;
-    font-size: 22px;
-    text-decoration: underline;
-}
-
-#nav-toggle {
+.nav-toggle {
     display: none;
+
+    &hover {
+        color: $hover-color-report;
+        margin: 0;
+        padding-bottom: 0;
+        font-size: 22px;
+        text-decoration: underline;
+    }
 }
 
 /* Small devices */
 
 @media (max-width: 767px) {
-    #nav {
+    nav {
         clear: both;
         padding: 0;
+
+        ul {
+            padding-bottom: 1em;
+            display: inline-grid;
+        }
+
+        ul li {
+            margin-left: 0;
+            text-align: center;
+        }
+
+        ul li a {
+            padding: 0.5em 0;
+        }
     }
 
-    #nav ul {
-        padding-bottom: 1em;
-        display: inline-grid;
-    }
-
-    #nav ul li {
-        margin-left: 0;
-        text-align: center;
-    }
-
-    #nav ul li a {
-        padding: 0.5em 0;
-    }
-
-    .js #nav-toggle {
+    .js .nav-toggle {
         display: block;
         float: right;
         width: 2em;
@@ -104,7 +116,7 @@
         cursor: pointer;
     }
 
-    .js #nav-toggle > * {
+    .js .nav-toggle > * {
         vertical-align: middle;
     }
 }

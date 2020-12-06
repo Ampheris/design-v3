@@ -41,23 +41,21 @@
         </a>
     </div>
 
-    <div class="nav">
-        <div id="nav" role="navigation" tabindex="-1">
-            <ul>
-                {% for page in pages(depthOffset=-1) if page.title and not page.hidden %}
-                    <li{% if page.id == current_page.id %} class="active"{% endif %}>
-                        <a href="{{ page.url }}">{% if page.title == 'Home' %}
-                                <i class="fas fa-home"></i>
-                            {% elseif page.title ==  'Analysis' %}
-                                <i class="fas fa-chart-line"></i>
-                            {% elseif page.title ==  'Report' %}
-                                <i class="far fa-file-alt"></i>
-                            {% endif %}{{ page.title }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
+    <nav role="navigation" tabindex="-1">
+        <ul>
+            {% for page in pages(depthOffset=-1) if page.title and not page.hidden %}
+                <li{% if page.id == current_page.id %} class="active"{% endif %}>
+                    <a href="{{ page.url }}">{% if page.title == 'Home' %}
+                            <i class="fas fa-home"></i>
+                        {% elseif page.title ==  'Analysis' %}
+                            <i class="fas fa-chart-line"></i>
+                        {% elseif page.title ==  'Report' %}
+                            <i class="far fa-file-alt"></i>
+                        {% endif %}{{ page.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
 </div>
 
 <div class="flash-region">
