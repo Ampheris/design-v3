@@ -6263,6 +6263,9 @@ nav a:hover {
 .kmom-box a:hover {
   background-color: #eaa08a;
 }
+.kmom-box .gallery {
+  background-color: transparent !important;
+}
 
 img,
 embed,

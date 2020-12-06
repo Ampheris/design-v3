@@ -15,7 +15,7 @@ Redovisningssida för design
 
 <div class="kmom-box">
 <h2>Load</h2>
-<p>Rapport kommer...</p>
+<p>Analysering av laddningstid och användbarhet hos hemsidor.</p>
 <a href="analysis/02_load">Läs mer</a>
 </div>
 
