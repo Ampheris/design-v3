@@ -32,7 +32,7 @@ Redovisningssida för design
 
 <div class="kmom-box">
 <h2>Kmom05</h2>
-<p>Rapport kommer...</p>
+<p>Jag tyckte det var intressant att se att även de mest traffikerade sidorna...</p>
 <a href="report/kmom05">Läs mer</a>
 </div>
 
@@ -40,7 +40,6 @@ Redovisningssida för design
 <h2>Kmom06</h2>
 <p>Rapport kommer...</p>
 <a href="report/kmom06">Läs mer</a>
-
 </div>
 
 <div class="kmom-box project">
