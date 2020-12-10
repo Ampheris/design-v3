@@ -6174,7 +6174,7 @@ nav ul li {
   font-weight: bold;
 }
 nav a:hover {
-  color: #eaa08a;
+  color: #46665c;
   margin: 0;
   padding-bottom: 0;
   font-size: 22px;
@@ -6189,7 +6189,7 @@ nav a:hover {
   display: none;
 }
 .nav-togglehover {
-  color: #eaa08a;
+  color: #46665c;
   margin: 0;
   padding-bottom: 0;
   font-size: 22px;
@@ -6248,6 +6248,7 @@ nav a:hover {
 
 .kmom-box {
   border-radius: 5px;
+  background-color: #b3a39f;
   color: #000;
   text-align: center;
   padding-bottom: 0.5rem;
@@ -6261,7 +6262,7 @@ nav a:hover {
   border-radius: 4px;
 }
 .kmom-box a:hover {
-  background-color: #eaa08a;
+  background-color: #46665c;
 }
 .kmom-box .gallery {
   background-color: transparent !important;
@@ -6318,7 +6319,6 @@ video {
 }
 .kmom h1 {
   grid-column: span 2;
-  justify-self: right;
 }
 .kmom ul {
   list-style-type: none;
@@ -6397,7 +6397,7 @@ ul li a {
 }
 
 ul li a:hover {
-  color: #eaa08a;
+  color: #46665c;
   text-decoration-line: underline;
 }
 

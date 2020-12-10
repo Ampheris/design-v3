@@ -1,5 +1,5 @@
 ---
-Title: Analysis
+Title: Analyser
 Description: The course report page
 Template: report
 ---
@@ -21,7 +21,7 @@ Redovisningssida för design
 
 <div class="kmom-box">
 <h2>Design principles</h2>
-<p>Rapport kommer...</p>
+<p>Anlysera hemsidors designprinciper och element.</p>
 <a href="analysis/03_design_principles">Läs mer</a>
 
 </div>

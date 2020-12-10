@@ -6248,6 +6248,7 @@ nav a:hover {
 
 .kmom-box {
   border-radius: 5px;
+  background-color: #333337;
   color: #fff;
   text-align: center;
   padding-bottom: 0.5rem;
@@ -6262,6 +6263,9 @@ nav a:hover {
 }
 .kmom-box a:hover {
   background-color: #99aab5;
+}
+.kmom-box .gallery {
+  background-color: transparent !important;
 }
 
 img,
@@ -6315,7 +6319,6 @@ video {
 }
 .kmom h1 {
   grid-column: span 2;
-  justify-self: right;
 }
 .kmom ul {
   list-style-type: none;
