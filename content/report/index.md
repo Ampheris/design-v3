@@ -38,12 +38,12 @@ Redovisningssida för design
 
 <div class="kmom-box">
 <h2>Kmom06</h2>
-<p>Rapport kommer...</p>
+<p>Det känns annorlunda att tänka i design principer men...</p>
 <a href="report/kmom06">Läs mer</a>
 </div>
 
 <div class="kmom-box project">
 <h2>Kmom10</h2>
-<p>Rapport kommer...</p>
+<p> Jag valde att använda min portfolio som...</p>
 <a href="report/kmom10">Läs mer</a>
 </div>

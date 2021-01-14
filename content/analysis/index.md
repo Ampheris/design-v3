@@ -23,5 +23,10 @@ Redovisningssida för design
 <h2>Design principles</h2>
 <p>Anlysera hemsidors designprinciper och element.</p>
 <a href="analysis/03_design_principles">Läs mer</a>
+</div>
 
+<div class="kmom-box">
+<h2>Sök Under</h2>
+<p>Anlysera hemsidors webbplatsdesign och aktuella trender.</p>
+<a href="analysis/10_webbplatsdesign">Läs mer</a>
 </div>

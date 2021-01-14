@@ -26,11 +26,11 @@ Resultat
 
 ### Rhiannon Navin
 <div class="analysis-img">
-<a href="image/RhiannonNavin.png"><img src="../image/RhiannonNavin.png" alt="walmart"></a>
-<a href="image/RhiannonNavingGallery.png"><img src="../image/RhiannonNavingGallery.png" alt="walmart"></a>
+<img src="../image/RhiannonNavin.PNG" alt="RhiannonNavin">
+<img src="../image/RhiannonNavinGallery.PNG" alt="RhiannonNavin2">
 </div>
 
-Målet och syftet med hemsidan är att den ska upplyfta hennes novell, Only Child. Hemsidans design är väldigt ljud, minimalistisk,
+Målet och syftet med hemsidan(https://www.rhiannonnavin.com/) är att den ska upplyfta hennes novell, Only Child. Hemsidans design är väldigt ljud, minimalistisk,
 enkel text att läsa samt logga. Det syns tydligt på första sidan att det är boken det handlar om då man får se två stora
 bilder på bokens fram- och baksida tillsammans med två citat. Designen på hemsidan gynnar syftet och målet då det inte finns
 så mycket som visas som inte handlar om boken, förutom en liten beskrivning om vem författaren är. Hon har även valt
@@ -46,11 +46,11 @@ som används.
 
 ### Ximena Vengoechea
 <div class="analysis-img">
-<a href="http://www.ximenavengoechea.com/"><img src="../image/Vengoechea.png" alt="walmart"></a>
-<a href="http://www.ximenavengoechea.com/illustrations"><img src="../image/VengoecheaIllustrations.png" alt="walmart"></a> 
+<img src="../image/Vengoechea.PNG" alt="Vengoechea">
+<img src="../image/VengoecheaIllustrations.png" alt="Vengoechea2">
 </div>
 
-Målet och syftet med hemsidan är att vara en portfolio för att kunna visa sina potentiella kunder vad hon har att
+Målet och syftet med hemsidan(http://www.ximenavengoechea.com/) är att vara en portfolio för att kunna visa sina potentiella kunder vad hon har att
 erbjuda. Framsidan är kreativ och simpel men svårläst. Vengoechea har 4 helt olika fonts; en för sina headers, en
 för menyn, en för footern samt en del paragraf text, en för citat och sin egna handstil i hennes illustrationer.
 
@@ -67,7 +67,11 @@ då ingen sida verkar vara lik den andra med tanken på själva layout designen.
 
 
 ### Orestis Georgiou
-Målet och syftet med hemsidan är att vara ett digitalt CV samt personligt brev för Orestis Georgiou. Du kan läsa om vad
+<div class="analysis-img">
+<img src="../image/OrestisGeorgiou.png" alt="OrestisGeorgiou">
+<img src="../image/OrestisGeorgiouLayout.png" alt="OrestisGeorgiou2">
+</div>
+Målet och syftet med hemsidan(https://www.orestisgeorgiou.com/) är att vara ett digitalt CV samt personligt brev för Orestis Georgiou. Du kan läsa om vad
 han har gjort för arbeten genom livet, där han har talat på konferanser med mera. Hemsidan är bra gjort med en tydlig
 layout, ett bra typsnitt som passar det professionella intrycket han vill få oss användare att känna.
 
